@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -16,7 +17,9 @@ export default {
   }, methods: {
     clickMe() 
     {
-      alert("You Did");
+      axios.get("https://api.npms.io/v2/search?q=vue")
+    .then(response => {alert(response.data.total)
+    console.log(response.data)});
     }
   }
 };
